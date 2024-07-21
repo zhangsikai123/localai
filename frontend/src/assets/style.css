@@ -1,0 +1,53 @@
+/* styles.css */
+body {
+  font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  margin: 0;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+}
+
+/* entry box */
+.entry-container {
+    flex-grow: 1; /* Take up the remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.entry-input-box {
+  display: flex;
+}
+
+.entry-input-box input {
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 1em;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 300px; /* Adjust the width as needed */
+    outline: none;
+}
+
+.entry-input-box button {
+    padding: 10px 20px;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+.entry-shortcut-tips {
+    font-size: 0.9em;
+}
+
+.entry-shortcut-tips a {
+    color: #007bff; /* Matching the button color */
+    text-decoration: none;
+}

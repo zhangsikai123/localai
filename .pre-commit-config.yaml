@@ -1,0 +1,58 @@
+default_language_version:
+    python: python3
+repos:
+- repo: https://github.com/asottile/reorder_python_imports.git
+  rev: v2.5.0
+  hooks:
+  - id: reorder-python-imports
+    args:
+    - --separate-relative
+    - --separate-from-import
+    - --remove-import
+    - from __future__ import absolute_import
+    - --remove-import
+    - from __future__ import division
+    - --remove-import
+    - from __future__ import print_function
+    - --remove-import
+    - from __future__ import unicode_literals
+    - --remove-import
+    - from __future__ import with_statement
+
+- repo: https://github.com/psf/black.git
+  rev: 22.10.0
+  hooks:
+  - id: black
+    name: black
+    language: python
+    entry: black
+    types: [python]
+    additional_dependencies: ['click==8.0.4']
+
+- repo: https://github.com/PyCQA/flake8.git
+  rev: 3.7.9
+  hooks:
+  - id: flake8
+    language: python
+    args:
+      - --ignore=W503,E203,E402
+      - --exclude=backend/agents/*,backend/server/utils.py,backend/server/third_qa_support_api.py,backend/server/summarize/summarize_api.py
+
+#- repo: https://github.com/pre-commit/mirrors-mypy
+#  rev: 'v0.982'
+#  hooks:
+#  - id: mypy
+#    files: ms/
+#    additional_dependencies:
+#      - types-requests
+#      - types-python-dateutil
+#      - types-Flask
+#      - types-PyMySQL
+#      - types-protobuf
+#    args:
+#     - --ignore-missing-imports
+- repo: https://github.com/PyCQA/autoflake
+  rev: v2.2.1
+  hooks:
+  - id: autoflake
+    args: [--remove-all-unused-imports, --in-place]

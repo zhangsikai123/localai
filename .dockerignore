@@ -1,0 +1,30 @@
+# Ignore Python virtual environment files
+venv/
+
+# Ignore node_modules directory for the frontend (Vite)
+frontend/node_modules
+
+# Ignore any compiled frontend assets
+frontend/dist
+
+# Ignore any log files
+*.log
+
+# Ignore any temporary files
+*.tmp
+
+# Ignore any cache or temporary files created during development
+*~
+__pycache__/
+.cache/
+dist/
+build/
+.DS_Store
+backend/server.db
+
+# Ignore any editor-specific files
+.vscode/
+.idea/
+
+# Ignore any local configuration files
+.env
