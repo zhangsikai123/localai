@@ -65,7 +65,7 @@ async def chat(
             async for token in callback.aiter():
                 # Use server-sent-events to stream the response
                 yield token
-                
+
             await task
         else:
             async for chunks in chain.astream(query):

@@ -15,7 +15,6 @@ from server.exceptions import NotFoundException
 from server.user.auth import get_current_user
 from server.utils import BaseResponse
 
-# from server.directmail import MailSender
 router = APIRouter()
 
 
@@ -46,7 +45,7 @@ async def signup(
     avatar = "src/assets/user.png"
     # check if email exists
     if email_exists(email):
-        raise HTTPException(status_code=400, detail=f"邮箱{email}已经存在了")
+        raise HTTPException(status_code=400, detail=f"mailbox {email} already exists")
     user = create_user(
         nickname=random_nickname,
         token=token,
@@ -58,7 +57,7 @@ async def signup(
     # MailSender.send_activation_mail(email, user.activate_code)
     return BaseResponse(
         code=200,
-        msg=f"注册成功，请前往邮箱{email}激活账号",
+        msg=f"signup succeeded, check email {email} for activation",
         data={"activate_code": user.activate_code},
     )
 

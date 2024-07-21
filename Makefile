@@ -17,7 +17,7 @@ backend:
 	cd backend && export STAGE=dev && python3 migrate.py && nohup python3 start.py > ../backend.log &
 
 stop-frontend:
-	pkill -f "/app/frontend"
+	pkill -f "frontend"
 
 stop-backend:
 	pkill -f "python3 start.py"

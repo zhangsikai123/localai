@@ -11,7 +11,7 @@ def model_provider(
     max_tokens,
     callbacks,
 ) -> BaseLLM:
-    
+
     if model_name == "OpenAI":
         model_cls = ChatOpenAI
         model_args = dict(
