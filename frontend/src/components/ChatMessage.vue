@@ -57,7 +57,7 @@ export default defineComponent({
 	 const profileName = computed(() => {
 	   return props.sender == "user"
         ? "You"
-       : "Baozi";
+       : "AI";
 	 });
 	 const avatarSource = computed(() => {
 	   return props.sender == "user"

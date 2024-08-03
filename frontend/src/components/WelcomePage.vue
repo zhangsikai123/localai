@@ -13,7 +13,7 @@
 	  class="signup-modal"
     >
 	  <div class="signup-content">
-          <p>Sign Up to chat with Baozi.</p>
+          <p>Sign Up to chat with AI.</p>
           <a-form @submit.prevent="handleSignup">
 			<a-form-item>
               <a-input v-model:value="signupForm.email" placeholder="Email address" />
@@ -41,7 +41,7 @@
 	  class="login-modal"
 	>
 	  <div class="login-content">
-		<p>Log in to continue to Baozi.</p>
+		<p>Log in to continue to AI.</p>
 		<a-form @submit.prevent="handleLogin">
 		  <a-form-item>
 			<a-input v-model:value="loginForm.email" placeholder="Email address" />
@@ -62,7 +62,7 @@
 	</a-modal>
     <a-layout-content>
       <section class="hero">
-        <h1>Baozi</h1>
+        <h1>LocalAi</h1>
         <p>Your personal chatbot</p>
         <div class="cta-buttons">
           <a-button type="primary" @click="startChat" style="margin: 0 10px">Start a chat</a-button>

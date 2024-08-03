@@ -3,7 +3,7 @@
   <div class="entry-container">
     <h1></h1>
     <div class="entry-input-box">
-      <a-input type="text" v-model:value="userInput" placeholder="Tell Baozi what you want to do!" @keyup.enter="navigateToChat"/>
+      <a-input type="text" v-model:value="userInput" placeholder="Tell AI what you want to do!" @keyup.enter="navigateToChat"/>
       <button @click="navigateToChat">➤</button>
     </div>
     <div class="entry-shortcut-tips">

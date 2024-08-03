@@ -132,7 +132,7 @@
 		   });
 		 }
 		 else{
-		   chatThreads.value.push(...[{ id: 1, name: "Welcome to chat with Baozi!" }]);
+		   chatThreads.value.push(...[{ id: 1, name: "Welcome to chat with AI!" }]);
 		 }
 	   }
 	   catch (error) {

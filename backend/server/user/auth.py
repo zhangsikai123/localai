@@ -2,12 +2,14 @@ from fastapi import Depends
 from fastapi import HTTPException
 from fastapi import status
 from fastapi.security import OAuth2PasswordBearer
+from configs import logger
 from server.db.repository.user_repository import get_user_by_token
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 
 def get_current_user(token: str = Depends(oauth2_scheme)):
+    logger.info(f"get_current_user token: {token}")
     user = get_user_by_token(token=token)
     if user is None:
         raise HTTPException(
