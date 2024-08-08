@@ -15,6 +15,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python3.11 python3.11-dev 
 
 
 # Install frontend
+# TODO somtimes failed because of network issue, effect following steps because of cache
 RUN apt-get install -y curl && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
 # Set the working directory
