@@ -1,6 +1,7 @@
 import os
 import socket
-from backend.configs.server_config import API_SERVER
+from backend.configs import API_SERVER
+from backend.configs import LLM_MODEL
 
 def get_local_ip():
     try:
@@ -15,12 +16,11 @@ def get_local_ip():
 ip_address = get_local_ip()
 
 port = API_SERVER["port"]
-api_key = input("Enter API_KEY: ")
-os.environ["OPENAI_API_KEY"] = api_key
+if LLM_MODEL == "OpenAI":
+    api_key = input("Enter API_KEY: ")
+    os.environ["API_KEY"] = api_key
+    print(f"API_KEY: {os.getenv('API_KEY')}")
+    
 os.environ["VITE_BASE_URL"] = f"http://{ip_address}:{port}"
-
-# Output the set environment variable values
-print("Environment variables set:")
-print(f"API_KEYOPENAI_API_KEY: {os.getenv('API_KEY')}")
 print(f"VITE_BASE_URL: {os.getenv('VITE_BASE_URL')}")
 os.system("make backend && make frontend")

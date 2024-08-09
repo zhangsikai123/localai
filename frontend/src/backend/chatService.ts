@@ -5,9 +5,6 @@ const chatService = {
       query: query,
       history: history,
       stream: true,
-      temperature: 0.7,
-      max_tokens: 3000,
-      prompt_name: "default",
     };
 	const response = await fetch(
 	  `${import.meta.env.VITE_BASE_URL}/chat/chat`,
