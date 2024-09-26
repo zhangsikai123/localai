@@ -1,6 +1,5 @@
 from configs.model_config import TEMPERATURE
 from langchain.prompts.chat import ChatPromptTemplate
-from langchain.prompts.chat import HumanMessagePromptTemplate
 from langchain_community.llms import Ollama
 
 model_cls = Ollama

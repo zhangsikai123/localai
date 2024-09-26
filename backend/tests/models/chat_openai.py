@@ -3,7 +3,9 @@ from langchain.prompts.chat import ChatPromptTemplate
 from langchain.prompts.chat import HumanMessagePromptTemplate
 from server.chat.models import model_provider
 
-model = model_provider(provider_name="OpenAI", temperature=TEMPERATURE, max_tokens=50, callbacks=None)
+model = model_provider(
+    provider_name="OpenAI", temperature=TEMPERATURE, max_tokens=50, callbacks=None
+)
 
 
 human_prompt = "{input}"

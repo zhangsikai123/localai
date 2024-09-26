@@ -28,7 +28,7 @@ async def chat(
         ],
     ),
     stream: bool = Body(False, description="streaming response"),
-    provider_name: str = Body(LLM_MODEL, description="LLM provider"),
+    model_name: str = Body(LLM_MODEL, description="LLM provider"),
     temperature: float = Body(TEMPERATURE, description="LLM temperature", ge=0.0, le=1.0),
     max_tokens: int = Body(MAX_TOKEN, description="token limit"),
     # top_p: float = Body(TOP_P, description="LLM core sampling. Dont set with temperature", gt=0.0, lt=1.0),
@@ -41,12 +41,12 @@ async def chat(
     async def chat_iterator(
         query: str,
         history: List[History] = [],
-        provider_name: str = LLM_MODEL,
+        model_name: str = LLM_MODEL,
         prompt_name: str = prompt_name,
     ) -> AsyncIterable[str]:
         callback = AsyncIteratorCallbackHandler()
         model = models.model_provider(
-            provider_name=provider_name,
+            model_name=model_name,
             temperature=temperature,
             max_tokens=max_tokens,
             callbacks=[callback],
@@ -58,7 +58,7 @@ async def chat(
         )
         chain = chat_prompt | model
         # Begin a task that runs in the background.
-        if provider_name == "OpenAI":
+        if models.model_list[model_name]["provider"] == "OpenAI":
             task = asyncio.create_task(
                 wrap_done(chain.ainvoke({"input": query}), callback.done),
             )
@@ -74,7 +74,7 @@ async def chat(
 
     return StreamingResponse(
         chat_iterator(
-            query=query, history=history, provider_name=provider_name, prompt_name=prompt_name
+            query=query, history=history, model_name=model_name, prompt_name=prompt_name
         ),
         media_type="text/event-stream",
     )

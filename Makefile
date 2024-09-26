@@ -24,4 +24,4 @@ stop-backend:
 lint:
 	pre-commit run --all-files
 bootstrap:
-	python3 bootstrap.py
+	 PYTHONPATH=./:./backend python3 bootstrap.py

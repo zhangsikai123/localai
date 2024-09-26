@@ -1,8 +1,8 @@
+from configs import logger
 from fastapi import Depends
 from fastapi import HTTPException
 from fastapi import status
 from fastapi.security import OAuth2PasswordBearer
-from configs import logger
 from server.db.repository.user_repository import get_user_by_token
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
