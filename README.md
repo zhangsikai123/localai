@@ -5,9 +5,9 @@ A simple lightweight chatbot that can be locally deployed.
 
 ## Features
 
-- [x] Chat with LLM using APIs.
-- [x] Chat with LLM using Locally deployed Ollama serve.
-- [x] Lightweight backend && frontend.
+- [√] Chat with LLM using APIs.
+- [√] Chat with LLM using Locally deployed Ollama serve.
+- [√] Lightweight backend && frontend.
 
 ## Quick Start
 ### Your PC/Server
